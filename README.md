@@ -1,21 +1,15 @@
 # maze-solver
 
-[![PyPI - Version](https://img.shields.io/pypi/v/maze-solver.svg)](https://pypi.org/project/maze-solver)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/maze-solver.svg)](https://pypi.org/project/maze-solver)
+Following the guided project on [boot.dev](https://www.boot.dev/tracks/backend)
 
------
+## Ideas for Extending the Project
 
-## Table of Contents
-
-- [Installation](#installation)
-- [License](#license)
-
-## Installation
-
-```console
-pip install maze-solver
-```
-
-## License
-
-`maze-solver` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
+- [ ] Add other solving algorithms, like breadth-first search or A*
+- [ ] Make the visuals prettier, change the colors, etc
+- [ ] Mess with the animation settings to make it faster/slower. Maybe make backtracking slow and blazing new paths faster?
+- [ ] Add configurations in the app itself using Tkinter buttons and inputs to allow users to change maze size, speed, etc
+- [ ] Make much larger mazes to solve
+- [ ] Make it a game where the user chooses directions
+- [ ] If you made it a game, allow the user to race an algorithm
+- [ ] Make it 3 dimensional
+- [ ] Time the various algorithms and see which ones are the fastest
