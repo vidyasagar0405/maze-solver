@@ -1,3 +1,4 @@
+from typing import Self
 from maze_solver.graphics import Point, Window, Line
 
 
@@ -29,7 +30,8 @@ class Cell:
             )
         else:
             self._win.draw_line(
-                Line(Point(self._x1, self._y1), Point(self._x1, self._y2)), fill_color="white"
+                Line(Point(self._x1, self._y1), Point(self._x1, self._y2)),
+                fill_color="white",
             )
         if self.has_right_wall:
             self._win.draw_line(
@@ -37,7 +39,8 @@ class Cell:
             )
         else:
             self._win.draw_line(
-                Line(Point(self._x2, self._y1), Point(self._x2, self._y2)), fill_color="white"
+                Line(Point(self._x2, self._y1), Point(self._x2, self._y2)),
+                fill_color="white",
             )
         if self.has_top_wall:
             self._win.draw_line(
@@ -45,7 +48,8 @@ class Cell:
             )
         else:
             self._win.draw_line(
-                Line(Point(self._x1, self._y1), Point(self._x2, self._y1)), fill_color="white"
+                Line(Point(self._x1, self._y1), Point(self._x2, self._y1)),
+                fill_color="white",
             )
         if self.has_bottom_wall:
             self._win.draw_line(
@@ -53,26 +57,30 @@ class Cell:
             )
         else:
             self._win.draw_line(
-                Line(Point(self._x1, self._y2), Point(self._x2, self._y2)), fill_color="white"
+                Line(Point(self._x1, self._y2), Point(self._x2, self._y2)),
+                fill_color="white",
             )
 
-    def draw_move(self, to_cell, undo: bool = False):
+    def draw_move(self, to_cell: Self, undo: bool = False):
         fill_color = "red"
         if undo:
             fill_color = "gray"
 
         # Get mid point
-        if self._x1 and self._y1 and self._x2 and self._y2 is not None:
-            self_half: int = abs((self._x2 - self._x1) // 2)
-            self_x_center: int = self_half + self._x1
-            self_y_center: int = self_half + self._y1
+        assert self._x1 and self._y1 and self._x2 and self._y2 is not None, (
+            "Value cannot be None"
+        )
+        self_half: int = abs((self._x2 - self._x1) // 2)
+        self_x_center: int = self_half + self._x1
+        self_y_center: int = self_half + self._y1
 
-            to_half: int = abs((to_cell._x2 - to_cell._x1) // 2)
-            to_x_center: int = to_half + to_cell._x1
-            to_y_center: int = to_half + to_cell._y1
+        assert (
+            to_cell._x1 and to_cell._y1 and to_cell._x2 and to_cell._y2 is not None
+        ), "Value cannot be None"
 
-        else:
-            ValueError("Cell pos must be integers")
+        to_half: int = abs((to_cell._x2 - to_cell._x1) // 2)
+        to_x_center: int = to_half + to_cell._x1
+        to_y_center: int = to_half + to_cell._y1
 
         self_mid_point = Point(self_x_center, self_y_center)
         to_mid_point = Point(to_x_center, to_y_center)

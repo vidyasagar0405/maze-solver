@@ -1,4 +1,4 @@
-from tkinter import Tk, BOTH, Canvas
+from tkinter import Tk, BOTH, Canvas, Label
 
 
 class Point:
@@ -27,6 +27,13 @@ class Window:
     def __init__(self, width: int, height: int) -> None:
         self.__root: Tk = Tk(className="Maze-solver")
         self.__root.title("Maze-solver")
+
+        # Create a label
+        self.__label: Label = Label(
+            self.__root, text="Maze Solver", font=("Times New Roman", 14), fg="black"
+        )
+        self.__label.pack(pady=5)
+
         self.__canvas: Canvas = Canvas(
             self.__root, bg="white", width=width, height=height
         )
