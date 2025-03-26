@@ -1,3 +1,4 @@
+from time import perf_counter
 from maze_solver.graphics import Window
 from maze_solver.maze import Maze
 import sys
@@ -13,15 +14,18 @@ def main():
     cell_size_y = (screen_y - 2 * margin) / num_rows
 
     sys.setrecursionlimit(10000)
-    win = Window(screen_x, screen_y)
 
+    win = Window(screen_x, screen_y)
+    # win = Window()
     maze = Maze(margin, margin, num_rows, num_cols, cell_size_x, cell_size_y, win)
     print("maze created")
+    start = perf_counter()
     is_solvable = maze.solve()
+    end = perf_counter()
     if not is_solvable:
-        print("maze can not be solved!")
+        print("Maze can not be solved!")
     else:
-        print("maze solved!")
+        print(f"Maze solved! in {end - start} seconds")
     win.wait_for_close()
 
 

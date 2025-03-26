@@ -62,9 +62,9 @@ class Cell:
             )
 
     def draw_move(self, to_cell: Self, undo: bool = False):
-        fill_color = "red"
+        fill_color = "green"
         if undo:
-            fill_color = "gray"
+            fill_color = "red"
 
         # Get mid point
         assert self._x1 and self._y1 and self._x2 and self._y2 is not None, (

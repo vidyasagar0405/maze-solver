@@ -1,4 +1,4 @@
-# maze-solver
+# Maze-solver
 
 Following the guided project on [boot.dev](https://www.boot.dev/tracks/backend)
 

@@ -24,13 +24,21 @@ class Line:
 
 
 class Window:
-    def __init__(self, width: int, height: int) -> None:
+    def __init__(self, width: int | None = None, height: int | None = None) -> None:
+
+
         self.__root: Tk = Tk(className="Maze-solver")
         self.__root.title("Maze-solver")
 
+        if width is None:
+            width = int(self.__root.winfo_screenwidth() * 0.9)
+
+        if height is None:
+            height = int(self.__root.winfo_height() * 0.9)
+
         # Create a label
         self.__label: Label = Label(
-            self.__root, text="Maze Solver", font=("Times New Roman", 14), fg="black"
+            self.__root, text="Maze Solver", font=("Roboto", 14), fg="black"
         )
         self.__label.pack(pady=5)
 
